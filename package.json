@@ -1,0 +1,20 @@
+{
+  "name": "redux-with-vanilla-js",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "Simple example of redux with vanilla javascript",
+  "author": "Mehmet Hazar Artuner",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "dependencies": {
+    "redux": "4.0.1"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "3.2.0",
+    "webpack": "4.29.6",
+    "webpack-cli": "3.3.0",
+    "webpack-dev-server": "3.2.1"
+  }
+}
