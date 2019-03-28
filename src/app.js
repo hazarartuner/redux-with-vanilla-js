@@ -13,8 +13,7 @@ const decreaseCounter = {
 // endregion
 
 // region REDUCER
-function counterReducer(state = { count: 0 }, action) {
-
+function counterReducer(state, action) {
   switch(action.type) {
     case 'INCREASE':
       return {
@@ -33,7 +32,11 @@ function counterReducer(state = { count: 0 }, action) {
 // endregion
 
 // region STORE
-const store = createStore(counterReducer);
+const initialState = {
+  count: 0,
+};
+
+const store = createStore(counterReducer, initialState);
 // endregion
 
 // region APPLICATION CODE
@@ -41,11 +44,15 @@ const decreaseEl = document.getElementById('decrease');
 const increaseEl = document.getElementById('increase');
 const countEl = document.getElementById('count');
 
-store.subscribe(() => {
+function render() {
   const state = store.getState();
 
   countEl.innerText = state.count;
-});
+}
+
+render();
+
+store.subscribe(render);
 
 decreaseEl.addEventListener('click', () => store.dispatch(decreaseCounter));
 increaseEl.addEventListener('click', () => store.dispatch(increaseCounter));
